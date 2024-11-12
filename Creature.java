@@ -10,7 +10,9 @@
  * @author Crosbie
  * @version 2020-10 v1.0
  */
+
 // we will learn what the abstract keyword does in a later chapter
+import java.util.Random;
 public abstract class Creature
 {
     private int str;        // The strength of this creature
@@ -23,9 +25,8 @@ public abstract class Creature
      * strength for the subclass
      */
     public Creature (){
-        str=10;
-        hp=10;
-        max_hp = hp;
+        this.str = 10;
+        this.hp = 10;
     }
     
     /**
@@ -38,8 +39,13 @@ public abstract class Creature
      */
     public Creature (int str, int hp) {
        //implement this
+       this.str = str;
+       this.hp = hp;
     }
     
+    public int damage(){
+        return Randomizer.nextInt(this.str - 1) + 1;
+    }
     
     /**
      * Allows a creature to determine how much damage it is causing in this round of battle
@@ -47,7 +53,7 @@ public abstract class Creature
      */
     public int attack(){
         // TODO: implement a damage method
-        return 0;
+        return this.damage();
     }
     
     
@@ -57,7 +63,7 @@ public abstract class Creature
      */
     public boolean isAlive() {
         // TODO: implement a method to report if the creature yet lives
-        return false; //change this
+        return (this.hp > 0); //change this
     }
     
     /**
@@ -66,9 +72,16 @@ public abstract class Creature
      */
     public boolean isKnockedOut() {
         //TODO: implement a method to report if the creature has been killed
-        return false; //change this
+        return (hp <= 0); //change this
     }
     
+    
+    /**
+     * @return the current health of the creature.
+     */
+    public int getHealth(){
+        return this.hp;
+    }
     
     /**
      * takeDamage receives a value for the amount of damage to subtract from 
@@ -76,7 +89,7 @@ public abstract class Creature
      * @param damage value to remove from hit point count
      */
     public void takeDamage(int damage) {
-        // TODO: implement this
+        this.hp-=damage;
     }
     
 }
