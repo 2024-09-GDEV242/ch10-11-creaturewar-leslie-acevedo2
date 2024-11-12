@@ -1,3 +1,9 @@
+/**
+ * demon class
+ *
+ * @author Leslie Acevedo
+ * @version 2024.11.11
+ */
 public class Demon extends Creature
 {
     private int str;        // The strength of this creature
