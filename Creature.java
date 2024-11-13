@@ -40,7 +40,7 @@ public abstract class Creature
        this.str = str;
        this.hp = hp;
     }
-    
+    //calculate and returns damage 
     public int damage(){
         return Randomizer.nextInt(this.str - 1) + 1;
     }
@@ -53,7 +53,6 @@ public abstract class Creature
         // TODO: implement a damage method
         return this.damage();
     }
-    
     
     /**
      * Is this creature still capable of fighting?
@@ -73,11 +72,10 @@ public abstract class Creature
         return (hp <= 0); //change this
     }
     
-    
     /**
      * @return the current health of the creature.
      */
-    public int getHealth(){
+    private int getHealth(){
         return this.hp;
     }
     

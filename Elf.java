@@ -1,9 +1,10 @@
 /**
- * Write a description of class Elf here.
+ * Elf creature.
  *
  * @author Leslie Acevedo
  * @version 2024.11.11
  */
+// maximum health and strength of elf 
 public class Elf extends Creature
 {
     private static final int MAX_ELF_HP = 25;

@@ -12,23 +12,23 @@ public class Simulation
     ArrayList<Creature> goodArmy = new ArrayList<Creature>();
     ArrayList<Creature> evilArmy = new ArrayList<Creature>();
     public Simulation() {
-	createGood();
-	createEvil();
-	System.out.println("Created the armies!");
-	System.out.println("Good Army Size: " +  goodArmy.size());
-    	System.out.println("Evil Army Size: " +  evilArmy.size());
+    createGood();
+    createEvil();
+    System.out.println("Created the armies!");
+    System.out.println("Good Army Size: " +  goodArmy.size());
+        System.out.println("Evil Army Size: " +  evilArmy.size());
     }
     // setting condition for finishing the war
     private boolean checkBattleOver() {
-	boolean battleOver = false;
-	if (this.goodArmy.size() <= 0 || this.evilArmy.size() <= 0) {
+    boolean battleOver = false;
+    if (this.goodArmy.size() <= 0 || this.evilArmy.size() <= 0) {
             battleOver = true;
-	}
+    }
             return battleOver;
     }
-	
+    
     // the combat between two armies
-    public void war() {	
+    public void war() {    
         if(goodArmy.isEmpty() || evilArmy.isEmpty()){
             goodArmy = new ArrayList<Creature>();
             evilArmy = new ArrayList<Creature>();
@@ -36,22 +36,23 @@ public class Simulation
             createEvil();
             System.out.println("Created the armies!");
             System.out.println("Good Army Size: " +  goodArmy.size());
-    	    System.out.println("Evil Army Size: " +  evilArmy.size());
+            System.out.println("Evil Army Size: " +  evilArmy.size());
         }
-    	boolean battleOver = false;
-	while (!battleOver) {				
-            			
+        boolean battleOver = false;
+    while (!battleOver) {                
+            //get first set of creatures from each army            
             Creature goodCreature = this.goodArmy.get(0);
             Creature badCreature = this.evilArmy.get(0);
-            
-            do {	
+            //creatures attack 
+            do {    
                 goodCreature.takeDamage(badCreature.attack());
                 badCreature.takeDamage(goodCreature.attack());
             } while (goodCreature.isAlive() && badCreature.isAlive());
+            // print status of creature after battle 
             System.out.println("Creatue died!");
-            System.out.println("Good Creature Health: " + goodCreature.getHealth());
-            System.out.println("Evil Creature Health: " + badCreature.getHealth());
-
+            System.out.println("Is good creature alive: " + goodCreature.isAlive());
+            System.out.println("Is evil creature alive: " + badCreature.isAlive());
+            // remove creatures that lost 
             if (goodCreature.isKnockedOut()) {
                 this.goodArmy.remove(goodCreature);
                 System.out.println("Removing good creature from battlefield!");
@@ -61,14 +62,14 @@ public class Simulation
                 System.out.println("Removing evil creature from battlefield!");
             }
                 System.out.println("\n");
-
+            //check if battle is over
                 battleOver = checkBattleOver();
-        }	
-                System.out.println("Good Army Remaining Size: " +  goodArmy.size());
-        	System.out.println("Evil Army Remaining Size: " +  evilArmy.size());
-        	 // declare the winner
+        }    
+            System.out.println("Good Army Remaining Size: " +  goodArmy.size());
+            System.out.println("Evil Army Remaining Size: " +  evilArmy.size());
+             // declare the winner
             if (this.goodArmy.size() <= 0) {
-        	System.out.println("Warriors lost to Demons...");
+            System.out.println("Warriors lost to Demons...");
             } else {
                 System.out.println("Warriors defeated Demons and won the combat...");
             }

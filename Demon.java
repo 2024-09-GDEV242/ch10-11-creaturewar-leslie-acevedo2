@@ -1,5 +1,5 @@
 /**
- * demon class
+ * demon creature
  *
  * @author Leslie Acevedo
  * @version 2024.11.11

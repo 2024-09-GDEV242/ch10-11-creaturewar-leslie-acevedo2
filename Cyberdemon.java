@@ -1,5 +1,5 @@
 /**
- * Write a description of class Cyberdemon here.
+ * Cyberdemon creature 
  * 
  *@author Leslie Acevedo
  *@version 2024.11.11
